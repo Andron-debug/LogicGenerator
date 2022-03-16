@@ -83,12 +83,13 @@ namespace Logic
             this.true_table.ColumnCount = 2;
             this.true_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.true_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.true_table.Location = new System.Drawing.Point(16, 113);
+            this.true_table.Location = new System.Drawing.Point(3, 113);
             this.true_table.Name = "true_table";
+            this.true_table.Padding = new System.Windows.Forms.Padding(10);
             this.true_table.RowCount = 2;
             this.true_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.true_table.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.true_table.Size = new System.Drawing.Size(453, 3);
+            this.true_table.Size = new System.Drawing.Size(451, 23);
             this.true_table.TabIndex = 5;
             // 
             // Form1
@@ -98,7 +99,7 @@ namespace Logic
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(482, 131);
+            this.ClientSize = new System.Drawing.Size(482, 137);
             this.Controls.Add(this.true_table);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

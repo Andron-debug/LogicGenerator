@@ -16,9 +16,12 @@ namespace Logic
         {
             InitializeComponent();
             variable_comboBox.SelectedIndex = 0;
+            f = new Result();
+            f.Show();
         }
 
-
+        private CheckBox[] checkBoxes;
+        private Result f;
         private void variable_comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -50,6 +53,7 @@ namespace Logic
             //Заполнение строк
             Label row_lable = new Label();
             Font main_font = new Font("Microsoft Sans Serif", 10f);
+            CheckBox[] checkBoxes = new CheckBox[(int)Math.Pow(2, var_count)]; 
             for (int i = 0; i < Math.Pow(2, var_count); i++)
             {
                 row_lable = new Label();
@@ -58,11 +62,19 @@ namespace Logic
                 row_lable.Text = string.Concat(Enumerable.Repeat("0", var_count-row_text.Length))+row_text;
                 row_lable.AutoSize = true;
                 true_table.Controls.Add(row_lable, 0, i+1);
+
+                checkBoxes[i] = new CheckBox();
+                checkBoxes[i].Text = "";
+                checkBoxes[i].CheckedChanged += FValueChanged;
+                true_table.Controls.Add(checkBoxes[i], 1, i + 1);
             }
-             
             foreach (ColumnStyle st in true_table.ColumnStyles) st.SizeType = SizeType.AutoSize;
             foreach (RowStyle rs in true_table.RowStyles) rs.SizeType = SizeType.AutoSize;
         }
 
+        private void FValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
