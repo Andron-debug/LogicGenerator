@@ -75,8 +75,7 @@ namespace Logic
         {
             bool[] FValues = new bool[(int)Math.Pow(2, var_count)];
             for (int i = 0; i < (int)Math.Pow(2, var_count); i++) FValues[i] = checkBoxes[i].Checked;
-            LogicEq eq = new LogicEq(FValues, var_names);
-            eq.ToPolinom();
+            f.ToShow = new LogicEq(FValues, var_names);
         }
     }
 }

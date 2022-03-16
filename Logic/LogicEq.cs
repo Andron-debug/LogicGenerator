@@ -4,10 +4,10 @@ namespace Logic
 {
     public class LogicEq
     {
-        private string or = "⋁";
-        private string and = "⋀";
-        private string not = "¬";
-        private string xor = "⊕";
+        public static string or = "⋁";
+        public static string and = "⋀";
+        public static string not = "¬";
+        public static string xor = "⊕";
 
         private bool[] values;
         private string[] var_names;
@@ -20,14 +20,45 @@ namespace Logic
         }
         public string ToPDF() //СДНФ
         {
-            string result = "";
+            string result = "1";
+            if (var_names.Length == 1)
+            {
+                if (values[0] && values[1]) return "1";
+                if (!(values[0] || values[1])) return "0";
+            }
+            int last_index = 0;
+            for (int i = 0; i < values.Length; i++)
+                if (values[i]) last_index = i;
+                for (int i = 0; i <= last_index; i++)
+                {
+                    if (values[i])
+                    {
+                        if (result == "1") result = "";
+                        bool[] row = create_var_val(i);
+                        string blok = "(";
+                        for (int j = 0; j < row.Length; j++)
+                        {
+                            if (!row[j]) blok += not;
+                            blok += var_names[j];
+                            if (j != row.Length - 1) blok += and;
+                        }
+                        blok += ")";
+                        result += blok;
+                        if (i != last_index) result += or;
+                    }
+                }
+            Console.WriteLine(result);
+            return result;
+        }
+        public string ToPCF()//СКНФ
+        {
+            string result = "0";
             return result;
         }
         public string ToPolinom()//Полином Жегалкина
         {
             string result = "";
             bool[] r = create_var_val(0);
-            r = create_var_val(var_names.Length-1);
             return result;
         }
         private bool[] create_var_val(int n)//Строка таблицы истинности
@@ -43,5 +74,6 @@ namespace Logic
             }
             return result;
         }
+        
     }
 }

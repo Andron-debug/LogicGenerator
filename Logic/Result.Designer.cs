@@ -30,7 +30,7 @@ namespace Logic
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.result_textBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -43,28 +43,29 @@ namespace Logic
             this.label1.TabIndex = 0;
             this.label1.Text = "Результат";
             // 
-            // textBox1
+            // result_textBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.result_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.textBox1.Location = new System.Drawing.Point(12, 36);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(375, 226);
-            this.textBox1.TabIndex = 1;
+            this.result_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.result_textBox.Location = new System.Drawing.Point(12, 36);
+            this.result_textBox.Multiline = true;
+            this.result_textBox.Name = "result_textBox";
+            this.result_textBox.Size = new System.Drawing.Size(375, 226);
+            this.result_textBox.TabIndex = 1;
             // 
             // Result
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 273);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.result_textBox);
             this.Controls.Add(this.label1);
             this.Name = "Result";
             this.Text = "Result";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Result_FormClosing);
+            this.Load += new System.EventHandler(this.Result_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -73,6 +74,6 @@ namespace Logic
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox result_textBox;
     }
 }
