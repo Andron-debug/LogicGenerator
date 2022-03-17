@@ -20,12 +20,7 @@ namespace Logic
         }
         public string ToPDF() //СДНФ
         {
-            string result = "1";
-            if (var_names.Length == 1)
-            {
-                if (values[0] && values[1]) return "1";
-                if (!(values[0] || values[1])) return "0";
-            }
+            string result = "0";
             int last_index = 0;
             for (int i = 0; i < values.Length; i++)
                 if (values[i]) last_index = i;
@@ -33,7 +28,7 @@ namespace Logic
                 {
                     if (values[i])
                     {
-                        if (result == "1") result = "";
+                        if (result == "0") result = "";
                         bool[] row = create_var_val(i);
                         string blok = "(";
                         for (int j = 0; j < row.Length; j++)
@@ -47,12 +42,32 @@ namespace Logic
                         if (i != last_index) result += or;
                     }
                 }
-            Console.WriteLine(result);
             return result;
         }
         public string ToPCF()//СКНФ
         {
-            string result = "0";
+            string result = "1";
+            int last_index = 0;
+            for (int i = 0; i < values.Length; i++)
+                if (!values[i]) last_index = i;
+            for (int i = 0; i <= last_index; i++)
+            {
+                if (!values[i])
+                {
+                    if (result == "1") result = "";
+                    bool[] row = create_var_val(i);
+                    string blok = "(";
+                    for (int j = 0; j < row.Length; j++)
+                    {
+                        if (row[j]) blok += not;
+                        blok += var_names[j];
+                        if (j != row.Length - 1) blok += or;
+                    }
+                    blok += ")";
+                    result += blok;
+                    if (i != last_index) result += and;
+                }
+            }
             return result;
         }
         public string ToPolinom()//Полином Жегалкина

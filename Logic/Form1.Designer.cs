@@ -33,6 +33,8 @@ namespace Logic
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.true_table = new System.Windows.Forms.TableLayoutPanel();
+            this.do_button = new System.Windows.Forms.Button();
+            this.clear_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // variable_comboBox
@@ -67,7 +69,7 @@ namespace Logic
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(12, 86);
+            this.label2.Location = new System.Drawing.Point(11, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(214, 24);
             this.label2.TabIndex = 4;
@@ -83,7 +85,7 @@ namespace Logic
             this.true_table.ColumnCount = 2;
             this.true_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.true_table.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.true_table.Location = new System.Drawing.Point(3, 113);
+            this.true_table.Location = new System.Drawing.Point(0, 159);
             this.true_table.Name = "true_table";
             this.true_table.Padding = new System.Windows.Forms.Padding(10);
             this.true_table.RowCount = 2;
@@ -92,6 +94,26 @@ namespace Logic
             this.true_table.Size = new System.Drawing.Size(451, 23);
             this.true_table.TabIndex = 5;
             // 
+            // do_button
+            // 
+            this.do_button.Location = new System.Drawing.Point(15, 71);
+            this.do_button.Name = "do_button";
+            this.do_button.Size = new System.Drawing.Size(147, 24);
+            this.do_button.TabIndex = 6;
+            this.do_button.Text = "Построить";
+            this.do_button.UseVisualStyleBackColor = true;
+            this.do_button.Click += new System.EventHandler(this.do_button_Click);
+            // 
+            // clear_button
+            // 
+            this.clear_button.Location = new System.Drawing.Point(15, 97);
+            this.clear_button.Name = "clear_button";
+            this.clear_button.Size = new System.Drawing.Size(147, 24);
+            this.clear_button.TabIndex = 7;
+            this.clear_button.Text = "Чистить";
+            this.clear_button.UseVisualStyleBackColor = true;
+            this.clear_button.Click += new System.EventHandler(this.clear_button_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -99,7 +121,9 @@ namespace Logic
             this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(482, 137);
+            this.ClientSize = new System.Drawing.Size(482, 194);
+            this.Controls.Add(this.clear_button);
+            this.Controls.Add(this.do_button);
             this.Controls.Add(this.true_table);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -116,6 +140,8 @@ namespace Logic
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel true_table;
+        private System.Windows.Forms.Button do_button;
+        private System.Windows.Forms.Button clear_button;
     }
 }
 

@@ -64,18 +64,22 @@ namespace Logic
 
                 checkBoxes[i] = new CheckBox();
                 checkBoxes[i].Text = "";
-                checkBoxes[i].CheckedChanged += FValueChanged;
                 true_table.Controls.Add(checkBoxes[i], 1, i + 1);
             }
             foreach (ColumnStyle st in true_table.ColumnStyles) st.SizeType = SizeType.AutoSize;
             foreach (RowStyle rs in true_table.RowStyles) rs.SizeType = SizeType.AutoSize;
         }
 
-        private void FValueChanged(object sender, EventArgs e)
+        private void do_button_Click(object sender, EventArgs e)
         {
             bool[] FValues = new bool[(int)Math.Pow(2, var_count)];
             for (int i = 0; i < (int)Math.Pow(2, var_count); i++) FValues[i] = checkBoxes[i].Checked;
             f.ToShow = new LogicEq(FValues, var_names);
+        }
+
+        private void clear_button_Click(object sender, EventArgs e)
+        {
+            foreach (CheckBox cb in checkBoxes) cb.Checked = false;
         }
     }
 }
