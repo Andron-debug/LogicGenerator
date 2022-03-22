@@ -52,6 +52,7 @@ namespace Logic
             this.result_textBox.Location = new System.Drawing.Point(12, 36);
             this.result_textBox.Multiline = true;
             this.result_textBox.Name = "result_textBox";
+            this.result_textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.result_textBox.Size = new System.Drawing.Size(375, 226);
             this.result_textBox.TabIndex = 1;
             // 
