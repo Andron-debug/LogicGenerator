@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Logic
 {
@@ -20,7 +13,7 @@ namespace Logic
                 ShowEq();
             }
         }
-        
+
         public Result()
         {
             InitializeComponent();
@@ -41,21 +34,28 @@ namespace Logic
             int pdf_count = bin_count(pdf);
             int pcf_count = bin_count(pcf);
             int polinom_count = bin_count(polinom);
-            if ((pdf_count<=pcf_count)&&(pdf_count<=polinom_count)) result_textBox.Text += "СДНФ ";
-            if ((pcf_count <= polinom_count)&& (pcf_count <= pdf_count)) result_textBox.Text += "СКНФ ";
-            if ((polinom_count <= pdf_count)&&(polinom_count <= pcf_count)) result_textBox.Text += "полинома Жегалкина";
+            if ((pdf_count <= pcf_count) && (pdf_count <= polinom_count)) result_textBox.Text += "СДНФ ";
+            if ((pcf_count <= polinom_count) && (pcf_count <= pdf_count)) result_textBox.Text += "СКНФ ";
+            if ((polinom_count <= pdf_count) && (polinom_count <= pcf_count)) result_textBox.Text += "полинома Жегалкина";
         }
         private int bin_count(string e)
         {
-            if (e == eq.Non) return int.MaxValue;
+            if (e == LogicEq.Non) return int.MaxValue;
             int result = 0;
-            result += op_count(e, eq.And);
-            result += op_count(e, eq.Or);
-            result += op_count(e, eq.Xor);
+            result += op_count(e, LogicEq.And);
+            result += op_count(e, LogicEq.Or);
+            result += op_count(e, LogicEq.Xor);
             return result;
         }
         private int op_count(string e, string op) => (e.Length - e.Replace(op, "").Length) / op.Length;
-        private void Result_Load(object sender, System.EventArgs e)
+
+        private void settings_button_Click(object sender, EventArgs e)
+        {
+            Form f = new Settings_form();
+            if (f.ShowDialog() == DialogResult.OK) ShowEq();
+        }
+
+        private void about_button_Click(object sender, EventArgs e)
         {
 
         }
