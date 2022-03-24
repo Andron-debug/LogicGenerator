@@ -4,11 +4,18 @@ namespace Logic
 {
     public class LogicEq
     {
-        public string or = "⋁";
-        public string and = "⋀";
-        public string not = "¬";
-        public string xor = "⊕";
-        public string non = "Невозможно построить";
+        private string or = "⋁";
+        public string Or => or;
+        private string and = "⋀";
+        public string And => and;
+
+        private string not = "¬";
+        public string Not => not;
+
+        private string xor = "⊕";
+        public string Xor => xor; 
+        private string non = "Невозможно построить";
+        public string Non => non;
 
         private bool[] values;
         private string[] var_names;
