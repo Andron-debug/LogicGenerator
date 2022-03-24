@@ -70,9 +70,9 @@ namespace Logic
             // 
             // about_button
             // 
-            this.about_button.Location = new System.Drawing.Point(315, 12);
+            this.about_button.Location = new System.Drawing.Point(315, 9);
             this.about_button.Name = "about_button";
-            this.about_button.Size = new System.Drawing.Size(104, 23);
+            this.about_button.Size = new System.Drawing.Size(148, 26);
             this.about_button.TabIndex = 3;
             this.about_button.Text = "О программе";
             this.about_button.UseVisualStyleBackColor = true;
