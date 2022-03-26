@@ -10,14 +10,22 @@ namespace Logic
             InitializeComponent();
         }
 
-
+        string and;
+        string or;
+        string not;
+        string xor;
 
         private void Settings_form_Load(object sender, EventArgs e)
         {
             and_textBox.Text = LogicEq.And;
             or_textBox.Text = LogicEq.Or;
-            no_textBox.Text = LogicEq.Not;
+            not_textBox.Text = LogicEq.Not;
             xor_textBox.Text = LogicEq.Xor;
+
+            and = LogicEq.And;
+            or = LogicEq.Or;
+            not = LogicEq.Not;
+            xor = LogicEq.Xor;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -26,7 +34,7 @@ namespace Logic
             {
                 LogicEq.And = and_textBox.Text;
                 LogicEq.Or = or_textBox.Text;
-                LogicEq.Not = no_textBox.Text;
+                LogicEq.Not = not_textBox.Text;
                 LogicEq.Xor = xor_textBox.Text;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -36,13 +44,13 @@ namespace Logic
                 MessageBox.Show(ex.Message);
             }
         }
-        private DialogResult set()
+
+        private void Settings_form_FormClosing(object sender, FormClosingEventArgs e)
         {
-                LogicEq.And = and_textBox.Text;
-                LogicEq.Or = or_textBox.Text;
-                LogicEq.Not = no_textBox.Text;
-                LogicEq.Xor = xor_textBox.Text;
-                return DialogResult.OK;
+            LogicEq.And = and;
+            LogicEq.Or = or;
+            LogicEq.Not = not;
+            LogicEq.Xor = xor;
         }
     }
 }

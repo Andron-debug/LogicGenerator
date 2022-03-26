@@ -35,7 +35,7 @@ namespace Logic
             this.label4 = new System.Windows.Forms.Label();
             this.and_textBox = new System.Windows.Forms.TextBox();
             this.or_textBox = new System.Windows.Forms.TextBox();
-            this.no_textBox = new System.Windows.Forms.TextBox();
+            this.not_textBox = new System.Windows.Forms.TextBox();
             this.xor_textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -82,35 +82,39 @@ namespace Logic
             // 
             // and_textBox
             // 
+            this.and_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.and_textBox.Location = new System.Drawing.Point(60, 11);
             this.and_textBox.Name = "and_textBox";
-            this.and_textBox.Size = new System.Drawing.Size(100, 22);
+            this.and_textBox.Size = new System.Drawing.Size(100, 28);
             this.and_textBox.TabIndex = 5;
             // 
             // or_textBox
             // 
+            this.or_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
             this.or_textBox.Location = new System.Drawing.Point(60, 41);
             this.or_textBox.Name = "or_textBox";
-            this.or_textBox.Size = new System.Drawing.Size(100, 22);
+            this.or_textBox.Size = new System.Drawing.Size(100, 28);
             this.or_textBox.TabIndex = 6;
             // 
-            // no_textBox
+            // not_textBox
             // 
-            this.no_textBox.Location = new System.Drawing.Point(60, 71);
-            this.no_textBox.Name = "no_textBox";
-            this.no_textBox.Size = new System.Drawing.Size(100, 22);
-            this.no_textBox.TabIndex = 7;
+            this.not_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
+            this.not_textBox.Location = new System.Drawing.Point(60, 71);
+            this.not_textBox.Name = "not_textBox";
+            this.not_textBox.Size = new System.Drawing.Size(100, 28);
+            this.not_textBox.TabIndex = 7;
             // 
             // xor_textBox
             // 
+            this.xor_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
             this.xor_textBox.Location = new System.Drawing.Point(60, 101);
             this.xor_textBox.Name = "xor_textBox";
-            this.xor_textBox.Size = new System.Drawing.Size(100, 22);
+            this.xor_textBox.Size = new System.Drawing.Size(100, 28);
             this.xor_textBox.TabIndex = 8;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(46, 129);
+            this.button1.Location = new System.Drawing.Point(43, 135);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
@@ -122,10 +126,10 @@ namespace Logic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(185, 155);
+            this.ClientSize = new System.Drawing.Size(185, 163);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.xor_textBox);
-            this.Controls.Add(this.no_textBox);
+            this.Controls.Add(this.not_textBox);
             this.Controls.Add(this.or_textBox);
             this.Controls.Add(this.and_textBox);
             this.Controls.Add(this.label4);
@@ -134,6 +138,7 @@ namespace Logic
             this.Controls.Add(this.label1);
             this.Name = "Settings_form";
             this.Text = "Settings_form";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Settings_form_FormClosing);
             this.Load += new System.EventHandler(this.Settings_form_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -148,7 +153,7 @@ namespace Logic
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox and_textBox;
         private System.Windows.Forms.TextBox or_textBox;
-        private System.Windows.Forms.TextBox no_textBox;
+        private System.Windows.Forms.TextBox not_textBox;
         private System.Windows.Forms.TextBox xor_textBox;
         private System.Windows.Forms.Button button1;
     }
