@@ -188,10 +188,33 @@ namespace Logic
             }
             return result;
         }
-
-        private bool[] create_row(int n)//Строка таблицы истинности
+        public string Dual()
         {
-            bool[] result = new bool[var_names.Length];
+            bool dual = true;
+            bool[] dual_val = new bool[values.Length];
+            for(int i = 0; i < values.Length; i++)
+            {
+                dual_val[values.Length - 1 - i] = !values[i];
+                if (!doxor(values[i], values[values.Length - 1 - i])) dual = false;
+            }
+            if (dual) return "Функция самодвойственна";
+            return new LogicEq(dual_val, var_names).ShortestForm();
+        }
+        public string ShortestForm()
+        {
+            string pdf = ToPDF();
+            string pcf = ToPCF();
+            string polinom = ToPolinom();
+            if ((pdf.Length <= pcf.Length) && (pdf.Length <= polinom.Length)&&(pdf != non)) return pdf;
+            if ((pcf.Length <= polinom.Length) && (pcf.Length <= pdf.Length)&&(pcf!=non)) return pcf;
+            return polinom;
+        }
+
+        public bool[] create_row(int n) => create_row(n, var_names.Length);
+
+        public static bool[] create_row(int n, int var_count)
+        {
+            bool[] result = new bool[var_count];
             int i = result.Length - 1;
             while (n != 0)
             {
@@ -202,6 +225,7 @@ namespace Logic
             }
             return result;
         }
+
         private bool doxor(bool a, bool b) => (!a || !b) && (a || b);
 
     }

@@ -14,7 +14,7 @@ namespace Logic
         string or;
         string not;
         string xor;
-
+        bool close_click = false;
         private void Settings_form_Load(object sender, EventArgs e)
         {
             and_textBox.Text = LogicEq.And;
@@ -37,6 +37,7 @@ namespace Logic
                 LogicEq.Not = not_textBox.Text;
                 LogicEq.Xor = xor_textBox.Text;
                 this.DialogResult = DialogResult.OK;
+                close_click = true;
                 this.Close();
             }
             catch (Exception ex)
@@ -47,10 +48,13 @@ namespace Logic
 
         private void Settings_form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            LogicEq.And = and;
-            LogicEq.Or = or;
-            LogicEq.Not = not;
-            LogicEq.Xor = xor;
+            if (!close_click)
+            {
+                LogicEq.And = and;
+                LogicEq.Or = or;
+                LogicEq.Not = not;
+                LogicEq.Xor = xor;
+            }
         }
     }
 }
